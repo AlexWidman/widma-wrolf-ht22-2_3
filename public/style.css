@@ -1,5 +1,6 @@
 /* A debug class, used to separate components graphically during development */
 .debug {
+    height:100%;
     border-style:solid;
 }
 .right {
@@ -7,4 +8,26 @@
 }
 .center {
     text-align:center;
+}
+
+.flexParent{
+    display:flex;
+    flex-direction:row;
+    height:100%;
+}
+
+.sidebar{
+    flex:0.15;
+}
+
+.mainContent{
+    flex:0.85;
+    margin:3px;
+}
+
+/* Setting width required to change to column to 450 px because most phones has a width below this */
+@media screen and (max-width: 450px){
+    .flexParent{
+        flex-direction: column;
+    }
 }

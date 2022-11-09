@@ -10,9 +10,9 @@ const Summary=require("../"+PREFIX+"/summaryPresenter.js").default;
 
 export default
 function App(props){
-    return (<div>
-                <div><Sidebar model={props.model} /></div>
-                <div><Summary model={props.model} /></div>
+    return (<div class="flexParent">
+                <div class="sidebar"><Sidebar model={props.model} /></div>
+                <div class="mainContent"><Summary model={props.model} /></div>
             </div>
            );
 }
