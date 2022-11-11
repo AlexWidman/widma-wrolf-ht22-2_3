@@ -20,12 +20,12 @@ function transformSearchResultACB(data){
 }
 
 function getDishDetails(id){
-  return fetch(BASE_URL+'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+id+'/information', options)
+  return fetch(BASE_URL+'recipes/'+id+'/information', options)
     .then(treatHTTPResponseACB);
 }
 
 function searchDishes(params){
-  return fetch(BASE_URL+'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query='+params, options)
+  return fetch(BASE_URL+'recipes/complexSearch?'+new URLSearchParams({params}), options)
     .then(treatHTTPResponseACB).then(transformSearchResultACB);
 }
 
