@@ -16,7 +16,8 @@ function treatHTTPResponseACB(response){
 
 // måste fixas till att return rätt
 function transformSearchResultACB(data){
-  return [...data];
+  console.log(data.results[2])
+  return data.results;
 }
 
 function getDishDetails(id){
@@ -25,7 +26,8 @@ function getDishDetails(id){
 }
 
 function searchDishes(params){
-  return fetch(BASE_URL+'recipes/complexSearch?'+new URLSearchParams({params}), options)
+  console.log(params);
+  return fetch(BASE_URL+'recipes/complexSearch?'+new URLSearchParams(params), options)
     .then(treatHTTPResponseACB).then(transformSearchResultACB);
 }
 
