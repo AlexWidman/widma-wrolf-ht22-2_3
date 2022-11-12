@@ -1,4 +1,5 @@
 function DetailsView(props){
+    function addToMenuClickACB(){ props.onAddToMenu(props.dishData) }
     function renderIngredientsCB(ingredient){
         return (
             <span>
@@ -6,8 +7,8 @@ function DetailsView(props){
             </span>
         );
     }
-    //console.log(props.dishData)
-    console.log(props.dishData.title+" In menu: "+props.isDishInMenu)
+    // console.log(props.dishData)
+    // console.log(props.dishData.title+" In menu: "+props.isDishInMenu)
     return (
         <div>
             <div class="details">
@@ -37,7 +38,7 @@ function DetailsView(props){
             <div>
                 <button
                 disabled={props.isDishInMenu}
-                onClick={console.log}
+                onClick={addToMenuClickACB}
                 style="margin:10px">
                     Add to menu!
                 </button>
