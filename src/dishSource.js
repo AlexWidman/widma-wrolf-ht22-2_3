@@ -11,10 +11,9 @@ const options = {
 function treatHTTPResponseACB(response){ 
     /*TODO throw when the HTTP response is not 200, otherwise return response.json()*/
     if (!response.ok) throw new Error("API problem "+response.status); {
-        return response.json()};
+        return response.json()}; //promise 2
 }
 
-// måste fixas till att return rätt
 function transformSearchResultACB(data){
   console.log(data.results[2])
   return data.results;
@@ -22,12 +21,12 @@ function transformSearchResultACB(data){
 
 function getDishDetails(id){
   return fetch(BASE_URL+'recipes/'+id+'/information', options)
-    .then(treatHTTPResponseACB);
+    .then(treatHTTPResponseACB); //promise 1
 }
 
 function searchDishes(params){
   return fetch(BASE_URL+'recipes/complexSearch?'+new URLSearchParams(params), options)
-    .then(treatHTTPResponseACB).then(transformSearchResultACB);
+    .then(treatHTTPResponseACB).then(transformSearchResultACB); //Promise 1
 }
 
 export {getDishDetails, searchDishes};

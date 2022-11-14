@@ -17,7 +17,7 @@ function Search(props){
 function SearchForm(props){
     function onValueChangeACB(text){ props.model.setSearchQuery(text); }
     function onOptionChoiceACB(choice){ props.model.setSearchType(choice); }
-    function onButtonPressACB(){ props.model.doSearch({}); }
+    function onButtonPressACB(){ props.model.doSearch(props.model.searchParams); }
     return  <SearchFormView dishTypeOptions={["starter", "main course", "dessert"]}
                         onValueChange={onValueChangeACB}
                         onOptionChoice={onOptionChoiceACB}
@@ -26,9 +26,7 @@ function SearchForm(props){
 }
 
 function SearchResults(props){
-    function onSearchResultACB(result){ props.model.setCurrentDish(result.id);
-    return Details(props);
-    }
+    function onSearchResultACB(result){ props.model.setCurrentDish(result.id);}
     return <SearchResultsView searchResults={props.model.searchResultsPromiseState.data}
                             onSearchResult={onSearchResultACB}/>;
 }
