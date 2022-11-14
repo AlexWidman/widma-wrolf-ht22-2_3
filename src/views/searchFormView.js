@@ -6,14 +6,23 @@ function SearchFormView(props){
             </option>
         );
     }
+    function onValueChangeACB(event){
+        props.onValueChange(event.target.value);
+    }
+    function onOptionChoiceACB(choice){
+        props.onOptionChoice(choice.target.value);
+    }
+    function onButtonPressACB(){
+        props.onButtonPress();
+      }
     return (
     <div>
         <input
-        onChange={console.log}>
+        onChange={onValueChangeACB}>
         </input>
         <select
-        onChange={console.log}>
-            <option>
+        onChange={onOptionChoiceACB}>
+            <option value="">
                 Choose:
             </option>
             {
@@ -21,7 +30,7 @@ function SearchFormView(props){
             }
         </select>
         <button
-        onChange={console.log}>
+        onClick={onButtonPressACB}>
             Search!
         </button>
     </div>

@@ -26,7 +26,6 @@ function getDishDetails(id){
 }
 
 function searchDishes(params){
-  console.log(params);
   return fetch(BASE_URL+'recipes/complexSearch?'+new URLSearchParams(params), options)
     .then(treatHTTPResponseACB).then(transformSearchResultACB);
 }
