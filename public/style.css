@@ -1,7 +1,14 @@
+.flexParent{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
 /* A debug class, used to separate components graphically during development */
 .debug {
     height: 100%;
     border-style: solid;
+    flex:0.4;
 }
 .right {
     text-align: right;
@@ -10,31 +17,20 @@
     text-align: center;
 }
 
-.flexParent{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-
 .sidebar{
     flex: 0.15;
 }
 
 .mainContent{
-    flex: 0.85;
+    flex: 0.2;
     margin: 3px;
-}
-
-/* Setting width required to change to column to 450 px because most phones has a width below this */
-@media screen and (max-width: 450px){
-    .flexParent{
-        flex-direction: column;
-    }
 }
 
 .searchResult{
     text-align: center;
-    float:left;
+    /*flex: 0.3;*/
+    float: left;
+    /*float:left;*/
     width: 200px;
     /*vertical-align: text-top;*/
     margin: 10px;
@@ -73,4 +69,11 @@
 
 p span {
     display: block;
+}
+
+/* Setting width required to change to column to 450 px because most phones has a width below this */
+@media screen and (max-width: 950px){
+    .flexParent{
+        flex-direction: column;
+    }
 }
