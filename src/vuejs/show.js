@@ -13,8 +13,10 @@ const Show = {
         window.removeEventListener("hashchange", this.hashListenerACB);
     },
     render(){
+        console.log(this.hashState);
+        console.log(this.hash);
         return <span 
-        class={this.hashState == this.hash? "block": "hidden"}>
+        class={this.hashState === this.hash? "block": "hidden"}>
             {this.$slots.default()}</span>;
     },
 }

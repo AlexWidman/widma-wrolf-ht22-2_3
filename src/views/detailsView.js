@@ -1,5 +1,7 @@
 function DetailsView(props){
-    function addToMenuClickACB(){ props.onAddToMenu(props.dishData) }
+    function addToMenuClickACB(){ props.onAddToMenu(props.dishData);
+        window.location.hash = "#search"; }
+    function cancelClickACB(){ window.location.hash = "#search"; }
     function renderIngredientsCB(ingredient){
         return (
             <span>
@@ -43,7 +45,7 @@ function DetailsView(props){
                     Add to menu!
                 </button>
                 <button
-                onClick={console.log}
+                onClick={cancelClickACB}
                 style="margin:10px">
                     Cancel
                 </button>

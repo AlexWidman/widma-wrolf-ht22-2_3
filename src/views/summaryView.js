@@ -2,6 +2,7 @@ import { sortIngredients } from "../utilities";
 
 /* Functional JSX component. Name starts with capital letter */
 function SummaryView(props){
+    function backButtonClickACB(){ window.location.hash = "#search"; }
     return (
             <div class="debug">
                 Summary for <span title="nr guests">{props.people}</span> persons:
@@ -10,6 +11,10 @@ function SummaryView(props){
                    // Then we can come back to JSX <tags>
                     renderIngredients(props.ingredients, props.people)
                 }
+                <button
+                onClick={backButtonClickACB}>
+                    Back to Search!
+                </button>
             </div>
     );
 }

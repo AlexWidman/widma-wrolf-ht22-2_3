@@ -29,7 +29,7 @@ function renderDishes(dishArray, guests, removeDish, showDetails){
             <td><button
                 onClick={xButtonClickACB}>
                 x</button></td>
-            <td><a href="#"
+            <td><a href="#details"
                 onClick={dishNameClickACB}>
                 {dish.title}</a></td>
             <td class="center">{dishType(dish)}</td>
