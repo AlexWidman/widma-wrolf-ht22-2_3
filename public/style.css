@@ -71,6 +71,14 @@ p span {
     display: block;
 }
 
+.hidden{
+    display: none;
+}
+
+.block{
+    display: block;
+}
+
 /* Setting width required to change to column to 450 px because most phones has a width below this */
 @media screen and (max-width: 950px){
     .flexParent{
