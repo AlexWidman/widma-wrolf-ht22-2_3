@@ -1,34 +1,30 @@
 import promiseNoData from "../views/promiseNoData.js";
 import SearchFormView from "../views/searchFormView.js";
 import SearchResultsView from "../views/searchResultsView.js";
+import { searchDishes } from "../dishSource.js"
+import resolvePromise from "../resolvePromise.js"
 
-const Search={   // ordinary JS object literal, can have methods like render()
+const Search={
     props: ["model"],
-    data(){ return { searchQuery: this.model.setSearchQuery() },
-                { searchType: this.model.setSearchType() },
-                { search: this.model.doSearch()},
-                { searchResult: this.model.setCurrentDish()},
-                { searchResultsPromiseState: {} } },
-    created(){ if (!this.searchResultsPromiseState.promise) {this.model.doSearch({})}; },
+    data(){ return { searchQuery: "" ,
+                searchType: "" ,
+                searchResultsPromiseState: {promise: "", data: "", error: ""} } },
+    created(){ if (!this.searchResultsPromiseState.promise) {resolvePromise(searchDishes({}), this.searchResultsPromiseState)}; },
     render(){
-        function SearchForm(){
-            function onValueChangeACB(text){ this.searchQuery = text; }
-            function onOptionChoiceACB(choice){ this.searchType = choice; }
-            function onButtonPressACB(){ this.search = this.model.searchParams; }
-            return <SearchFormView dishTypeOptions={["starter", "main course", "dessert"]}
+        function onValueChangeACB(text){ this.searchQuery = text; }
+        function onOptionChoiceACB(choice){ this.searchType = choice; }
+        function onButtonPressACB(){ resolvePromise(searchDishes({query: this.searchQuery, type: this.searchType}), this.searchResultsPromiseState) }
+        function onSearchResultACB(result){ this.model.setCurrentDish(result.id); }
+        return (
+            <div>
+                <SearchFormView dishTypeOptions={["starter", "main course", "dessert"]}
                                 onValueChange={onValueChangeACB.bind(this)}
                                 onOptionChoice={onOptionChoiceACB.bind(this)}
                                 onButtonPress={onButtonPressACB.bind(this)}/>
-        }
-        function SearchResults(){
-            function onSearchResultACB(result){ this.searchResult = result.id;}
-            return <SearchResultsView searchResults={this.model.searchResultsPromiseState.data}
-                                    onSearchResult={onSearchResultACB.bind(this)}/>
-        }
-        return (
-            <div>
-                {SearchForm.bind(this)}
-                {promiseNoData(this.searchResultsPromiseState)||SearchResults.bind(this)}
+                {promiseNoData(this.searchResultsPromiseState)||
+                <SearchResultsView searchResults={this.searchResultsPromiseState.data}
+                                    onSearchResult={onSearchResultACB.bind(this)}/>}
+                
             </div>
         )
     }
