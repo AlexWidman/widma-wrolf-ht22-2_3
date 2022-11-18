@@ -1,5 +1,3 @@
-
-
 const Show = {
     props:["hash"],
     data(){ return {hashState: window.location.hash}; }, 
