@@ -2,7 +2,7 @@ const Show = {
     props:["hash"],
     data(){ return {hashState: window.location.hash}; }, 
     methods:{
-        hashListenerACB(e){ this.hashState = e; }
+        hashListenerACB(e){ this.hashState = window.location.hash; }
     },
     created(){ 
         window.addEventListener("hashchange", this.hashListenerACB);
