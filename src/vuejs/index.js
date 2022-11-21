@@ -16,4 +16,8 @@ window.firebase=firebase;
 const VueRoot=require("/src/vuejs/VueRoot.js").default;
 
 // TODO render VueRoot into the "root" div
-<div id="root">{VueRoot.render()}</div>
+render(
+    <VueRoot/>
+    , document.getElementById('root')
+);
+
