@@ -14,10 +14,12 @@ const Show=require("../"+PREFIX+"/show.js").default;
 export default
 function App(props){
     return (<div class="flexParent">
-                <Show hash="#sidebar"><Sidebar model={props.model} /></Show>
-                <Show hash="#search"><Search model={props.model} /></Show>
-                <Show hash="#details"><Details model={props.model} /></Show>
-                <Show hash="#mainContent"><Summary model={props.model} /></Show>
+                <div class="sidebar"><Sidebar model={props.model}/></div>
+                <div class="mainContent">
+                    <Show hash="#search"><Search model={props.model} /></Show>
+                    <Show hash="#details"><Details model={props.model} /></Show>
+                    <Show hash="#summary"><Summary model={props.model} /></Show>
+                </div>
             </div>
            );
 }
