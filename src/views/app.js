@@ -9,6 +9,7 @@ const Sidebar=require("../"+PREFIX+"/sidebarPresenter.js").default;
 const Search=require("../"+PREFIX+"/searchPresenter.js").default;
 const Details=require("../"+PREFIX+"/detailsPresenter.js").default;
 const Summary=require("../"+PREFIX+"/summaryPresenter.js").default;
+const Show=require("../"+PREFIX+"/show.js").default;
 
 export default
 function App(props){
