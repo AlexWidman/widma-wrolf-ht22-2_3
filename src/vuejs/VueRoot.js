@@ -9,8 +9,8 @@ const VueRoot = {
                 created() {
                     function connectToFirebaseACB() { 
                         if (!this.promiseState.data) return;
-                        updateFirebaseFromModel(this.promiseState);
-                        updateModelFromFirebase(this.promiseState);
+                        updateFirebaseFromModel(this.promiseState.data);
+                        updateModelFromFirebase(this.promiseState.data);
                     }
                     if (!this.promiseState.promise) {
                         resolvePromise(firebaseModelPromise(), this.promiseState, connectToFirebaseACB)
