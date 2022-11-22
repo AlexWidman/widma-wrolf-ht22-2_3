@@ -39,20 +39,6 @@ function DetailsView(props){
             </div>
             <div>
                 <button
-                onClick="document.getElementById('text').style.fontSize = '0.75em'">
-                    Smaller text
-                </button>
-                <button
-                onClick="document.getElementById('text').style.fontSize = '1em'">
-                    Normal text
-                </button>
-                <button
-                onClick="document.getElementById('text').style.fontSize = '1.25em'">
-                    Bigger text
-                </button>
-            </div>
-            <div>
-                <button
                 disabled={props.isDishInMenu}
                 onClick={addToMenuClickACB}
                 style="margin:10px">
