@@ -11,7 +11,7 @@ import "firebase/database";
 window.firebase=firebase;
 
 // TODO import navigation
-//import "../views/navigation.js";
+import "../views/navigation.js";
 
 // using require() instead of import, for the above assignments to take effect before VueRoot is loaded
 const VueRoot=require("/src/vuejs/VueRoot.js").default;
