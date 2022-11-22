@@ -76,6 +76,7 @@ function updateModelFromFirebase(model) {
 
     function dishRemovedInFirebaseACB(firebaseData){ model.removeFromMenu({ id: +firebaseData.key });}
     firebase.database().ref(REF+"/dishes").on("child_removed",  dishRemovedInFirebaseACB);
+    return;
 }
 
 // Remember to uncomment the following line:
