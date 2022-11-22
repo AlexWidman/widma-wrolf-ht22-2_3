@@ -1,9 +1,4 @@
 function DetailsView(props){
-    function changeFontSizeACB(){ 
-        var det=document.getElementById("details");
-        var slider=document.getElementById("slider");
-        det.style.fontSize=slider.value
-    }
     function addToMenuClickACB(){ props.onAddToMenu(props.dishData);
         window.location.hash = "#search"; }
     function cancelClickACB(){ window.location.hash = "#search"; }
@@ -44,14 +39,18 @@ function DetailsView(props){
                 </p>
             </div>
             <div>
-                <input
-                type="range"
-                min="10"
-                max="30"
-                value="20"
-                onChange={changeFontSizeACB}
-                id="slider">
-                </input>
+                <button
+                onClick="document.getElementById('details').style.fontSize = '0.75em'">
+                    Smaller text
+                </button>
+                <button
+                onClick="document.getElementById('details').style.fontSize = '1em'">
+                    Normal text
+                </button>
+                <button
+                onClick="document.getElementById('details').style.fontSize = '1.25em'">
+                    Bigger text
+                </button>
             </div>
             <div>
                 <button
