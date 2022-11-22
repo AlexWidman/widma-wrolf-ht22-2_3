@@ -2,7 +2,6 @@
 import DinnerModel from "./DinnerModel.js";
 import { getDishDetails } from "./dishSource.js";
 import firebaseConfig from "./firebaseConfig.js";
-import resolvePromise from "./resolvePromise.js";
 
 // Initialise firebase
 firebase.initializeApp(firebaseConfig);
@@ -32,9 +31,9 @@ function firebaseModelPromise() {
 
 function updateFirebaseFromModel(model) {
     function observePayloadACB(payload) {
-        if (!payload) { return; }
+        if (!payload || payload<0 ) { return; }
         
-        if (payload.setGuests) {
+        else if (payload.setGuests) {
             firebase.database().ref(REF+"/numberOfGuests").set(model.numberOfGuests)
         }
         else if(payload.dishID){
@@ -77,6 +76,8 @@ function updateModelFromFirebase(model) {
 
     function dishRemovedInFirebaseACB(firebaseData){ model.removeFromMenu({ id: +firebaseData.key });}
     firebase.database().ref(REF+"/dishes").on("child_removed",  dishRemovedInFirebaseACB);
+
+    return;
 }
 
 // Remember to uncomment the following line:
