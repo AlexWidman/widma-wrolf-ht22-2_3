@@ -14,7 +14,7 @@ const Show = {
         console.log(this.hashState);
         console.log(this.hash);
         return <span 
-        class={this.hashState === this.hash? "block": "hidden"}>
+        class={this.hashState === this.hash? "mainContent": "hidden"}>
             {this.$slots.default()}</span>;
     },
 }
