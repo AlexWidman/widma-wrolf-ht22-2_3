@@ -18,7 +18,7 @@ function observerRecap(model) {
 function firebaseModelPromise() {
     function makeBigPromiseACB(firebaseData) {
         if (!firebaseData.val() || Object.keys(firebaseData.val()).length === 0) { return new DinnerModel(); }
-        const dishPromiseArray= Object.keys(firebaseData.val().dishes).map(makeDishPromiseCB);
+        const dishPromiseArray= Object.keys(firebaseData.val().dishes || []).map(makeDishPromiseCB);
         function createModelACB(dishArray){
             return new DinnerModel(firebaseData.val().numberOfGuests, dishArray);
         }
