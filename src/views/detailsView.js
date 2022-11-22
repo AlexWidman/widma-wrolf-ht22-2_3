@@ -40,15 +40,15 @@ function DetailsView(props){
             </div>
             <div>
                 <button
-                onClick="document.getElementById('details').style.fontSize = '0.75em'">
+                onClick="document.getElementById('detailsText').style.fontSize = '0.75em'">
                     Smaller text
                 </button>
                 <button
-                onClick="document.getElementById('details').style.fontSize = '1em'">
+                onClick="document.getElementById('detailsText').style.fontSize = '1em'">
                     Normal text
                 </button>
                 <button
-                onClick="document.getElementById('details').style.fontSize = '1.25em'">
+                onClick="document.getElementById('detailsText').style.fontSize = '1.25em'">
                     Bigger text
                 </button>
             </div>
