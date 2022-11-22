@@ -44,7 +44,7 @@ function DetailsView(props){
                 </button>
                 <button
                 onClick="document.getElementById('text').style.fontSize = '1em'">
-                    Normal text
+                    Cool text
                 </button>
                 <button
                 onClick="document.getElementById('text').style.fontSize = '1.25em'">
