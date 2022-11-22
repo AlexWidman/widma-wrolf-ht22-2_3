@@ -13,13 +13,12 @@ function DetailsView(props){
     // console.log(props.dishData.title+" In menu: "+props.isDishInMenu)
     return (
         <div>
-            <div class="details"
-            id="details">
+            <div class="details">
                 <p style="font-weight:bolder;">{props.dishData.title}</p>
                 <span class="clearfix">
                     <img src={props.dishData.image}height="150"style="float:left">
                     </img>
-                    <p class="detailsText">
+                    <p class="detailsText" id="text">
                         <span>
                             Price: {props.dishData.pricePerServing}
                         </span>
@@ -28,10 +27,10 @@ function DetailsView(props){
                         </span>
                     </p>
                 </span>
-                <p class="detailsText">
+                <p class="detailsText" id="text">
                     {props.dishData.extendedIngredients.map(renderIngredientsCB)}
                 </p>
-                <p class="detailsText">
+                <p class="detailsText" id="text">
                     {props.dishData.instructions}
                 </p>
                 <p><a href={props.dishData.sourceUrl}>
@@ -40,15 +39,15 @@ function DetailsView(props){
             </div>
             <div>
                 <button
-                onClick="document.getElementById('detailsText').style.fontSize = '0.75em'">
+                onClick="document.getElementById('text').style.fontSize = '0.75em'">
                     Smaller text
                 </button>
                 <button
-                onClick="document.getElementById('detailsText').style.fontSize = '1em'">
+                onClick="document.getElementById('text').style.fontSize = '1em'">
                     Normal text
                 </button>
                 <button
-                onClick="document.getElementById('detailsText').style.fontSize = '1.25em'">
+                onClick="document.getElementById('text').style.fontSize = '1.25em'">
                     Bigger text
                 </button>
             </div>
