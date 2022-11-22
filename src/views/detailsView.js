@@ -16,12 +16,12 @@ function DetailsView(props){
     // console.log(props.dishData.title+" In menu: "+props.isDishInMenu)
     return (
         <div>
-            <div class="details">
+            <div class="details" id="text">
                 <p style="font-weight:bolder;">{props.dishData.title}</p>
                 <span class="clearfix">
                     <img src={props.dishData.image}height="150"style="float:left">
                     </img>
-                    <p class="detailsText" id="text">
+                    <p class="detailsText">
                         <span>
                             Price: {props.dishData.pricePerServing}
                         </span>
@@ -30,10 +30,10 @@ function DetailsView(props){
                         </span>
                     </p>
                 </span>
-                <p class="detailsText" id="text">
+                <p class="detailsText">
                     {props.dishData.extendedIngredients.map(renderIngredientsCB)}
                 </p>
-                <p class="detailsText" id="text">
+                <p class="detailsText">
                     {props.dishData.instructions}
                 </p>
                 <p><a href={props.dishData.sourceUrl}>
