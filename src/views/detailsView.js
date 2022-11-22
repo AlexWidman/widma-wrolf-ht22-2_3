@@ -1,4 +1,7 @@
 function DetailsView(props){
+    function smallTextClickACB(){document.getElementById('text').style.fontSize = '0.75em'}
+    function normalTextClickACB(){document.getElementById('text').style.fontSize = '1em'}
+    function bigTextClickACB(){document.getElementById('text').style.fontSize = '1.25em'}
     function addToMenuClickACB(){ props.onAddToMenu(props.dishData);
         window.location.hash = "#search"; }
     function cancelClickACB(){ window.location.hash = "#search"; }
@@ -39,15 +42,15 @@ function DetailsView(props){
             </div>
             <div>
                 <button
-                onClick="document.getElementById('text').style.fontSize = '0.75em'">
+                onClick={smallTextClickACB}>
                     Smaller text
                 </button>
                 <button
-                onClick="document.getElementById('text').style.fontSize = '1em'">
+                onClick={normalTextClickACB}>
                     Normal text
                 </button>
                 <button
-                onClick="document.getElementById('text').style.fontSize = '1.25em'">
+                onClick={bigTextClickACB}>
                     Bigger text
                 </button>
             </div>
