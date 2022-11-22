@@ -12,7 +12,7 @@ function SearchResultsView(props){
                 <img src={result.image}height="100">
                 </img>
                 <div>
-                    {result.title}
+                    hello{result.title}
                 </div>
             </span>
         );
