@@ -13,14 +13,14 @@ const Search={
     render(){
         function onValueChangeACB(text){ this.searchQuery = text; }
         function onOptionChoiceACB(choice){ this.searchType = choice; }
-        function onButtonPressACB(){ resolvePromise(searchDishes({query: this.searchQuery, type: this.searchType}), this.searchResultsPromiseState) }
+        function onSearchACB(){ resolvePromise(searchDishes({query: this.searchQuery, type: this.searchType}), this.searchResultsPromiseState) }
         function onSearchResultACB(result){ this.model.setCurrentDish(result.id); }
         return (
             <div>
                 <SearchFormView dishTypeOptions={["starter", "main course", "dessert"]}
                                 onValueChange={onValueChangeACB.bind(this)}
                                 onOptionChoice={onOptionChoiceACB.bind(this)}
-                                onButtonPress={onButtonPressACB.bind(this)}/>
+                                onButtonPress={onSearchACB.bind(this)}/>
                 {promiseNoData(this.searchResultsPromiseState)||
                 <SearchResultsView searchResults={this.searchResultsPromiseState.data}
                                     onSearchResult={onSearchResultACB.bind(this)}/>}
